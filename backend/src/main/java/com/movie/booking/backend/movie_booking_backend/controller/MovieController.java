@@ -18,7 +18,7 @@ public class MovieController {
     public List<Movie> getAllMovies(){
         return  List.of(
                 Movie.builder().title("Animal").language("Hindi").genre("Action").build(),
-                Movie.builder().title("Interstellar").language("English").genre("Si-fi").build(),
+                Movie.builder().title("Interstellar").language("English").genre("Sci-fi").build(),
                 Movie.builder().title("3 Idiots").language("Hindi").genre("Comedy").build()
         );
     }
