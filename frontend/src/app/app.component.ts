@@ -1,15 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { MovieListComponent } from "./components/movie-list/movie-list.component";
+import { MovieListComponent } from './components/movie-list/movie-list.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MovieListComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true, 
+  imports: [MovieListComponent],
+  template: `<app-movie-list></app-movie-list>`,
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'movie-booking-frontend';
-}
-
-
+export class AppComponent {}
