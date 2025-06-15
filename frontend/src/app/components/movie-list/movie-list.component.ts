@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MovieService } from '../../services/movie.service';
+import { Movie } from '../../models/movie';
 
 @Component({
   selector: 'app-movie-list',
@@ -8,10 +10,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.css']
 })
-export class MovieListComponent {
-  movies = [
-    { title: 'Animal', language: 'Hindi', genre: 'Action' },
-    { title: 'Interstellar', language: 'English', genre: 'Sci-Fi' },
-    { title: '3 Idiots', language: 'Hindi', genre: 'Comedy' }
-  ];
+export class MovieListComponent implements OnInit {
+  movies: Movie[] = [];
+
+  constructor(private movieService: MovieService) {}
+
+  ngOnInit(): void {
+    this.movieService.getAllMovies().subscribe((data) => {
+      this.movies = data;
+    });
+  }
 }
