@@ -22,16 +22,16 @@ public class MovieService {
     }
 
     public Movie updateMovie(Long id, Movie updateMovie) {
-        Movie existingMovie = movieRepository.findById(id).orElseThrow(() -> new RuntimeException("Movie is not found" + id));
+        Movie movie = movieRepository.findById(id).orElseThrow(() -> new RuntimeException("Movie is not found" + id));
 
-        existingMovie.setTitle(updateMovie.getTitle());
-        existingMovie.setLanguage(updateMovie.getLanguage());
+        movie.setTitle(updateMovie.getTitle());
+        movie.setLanguage(updateMovie.getLanguage());
 
-        existingMovie.setGenre(updateMovie.getGenre());
-        existingMovie.setDescription(updateMovie.getDescription());
-        existingMovie.setCategory(updateMovie.getCategory());
+        movie.setGenre(updateMovie.getGenre());
+        movie.setDescription(updateMovie.getDescription());
+        movie.setCategory(updateMovie.getCategory());
 
-        return movieRepository.save(existingMovie);
+        return movieRepository.save(movie);
 
     }
 }
