@@ -12,10 +12,19 @@ public class CustomerService {
     CustomerRepository customerRepository;
 
 
-    public Customer saveCustomer(Customer customer){
-        return  customerRepository.save(customer);
+    public Customer saveCustomer(Customer customer) {
+        return customerRepository.save(customer);
     }
-    public List<Customer>getAllCustomer(){
+
+    public List<Customer> getAllCustomer() {
         return customerRepository.findAll();
+    }
+
+    public Customer getCustomerNyID(Long id) {
+        return customerRepository.findById(id).orElse(null);
+    }
+
+    public void deleteCustomer(Long id) {
+        customerRepository.deleteById(id);
     }
 }
