@@ -4,10 +4,9 @@ import com.movie.booking.backend.movie_booking_backend.model.Customer;
 import com.movie.booking.backend.movie_booking_backend.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/customer")
@@ -20,4 +19,9 @@ public class CustomerController {
     public Customer createCustomer (@RequestBody Customer customer){
         return  customerService.saveCustomer(customer);
     }
+    @GetMapping
+    public List<Customer>getAllCustomer(){
+        return  customerService.getAllCustomer();
+    }
+    @GetMapping
 }
