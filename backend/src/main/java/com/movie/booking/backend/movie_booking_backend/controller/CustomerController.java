@@ -23,5 +23,8 @@ public class CustomerController {
     public List<Customer>getAllCustomer(){
         return  customerService.getAllCustomer();
     }
-    @GetMapping
+    @GetMapping("/{id}")
+    public Customer getCustomer(@PathVariable Long id){
+        return  customerService.getCustomerNyID(id);
+    }
 }
